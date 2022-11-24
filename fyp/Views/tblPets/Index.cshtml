@@ -1,0 +1,78 @@
+﻿@model IEnumerable<fyp.Models.tblPet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Pet SubCategory
+            @*@Html.DisplayNameFor(model => model.tblPetSubcategory.P_SubcategoryName)*@
+        </th>
+        <th>
+            Shop Name
+            @*@Html.DisplayNameFor(model => model.tblShop.Shop_Name)*@
+        </th>
+        <th>
+            Pets Name
+            @*@Html.DisplayNameFor(model => model.Pets_Name)*@
+        </th>
+        <th>
+            Pets Image
+        </th>
+        <th>
+            Pets Description
+        </th>
+        <th>
+            Pets Purchase Price
+        </th>
+        <th>
+            Pets Sale Price
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var pet in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => pet.tblPetSubcategory.P_SubcategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => pet.tblShop.Shop_Name)
+        </td>
+        <td>
+            @pet.Pets_Name
+        </td>
+        <td>
+            <img src="@Url.Content(pet.Pets_Image)" width="100" height="100" />
+            @*@Html.DisplayFor(modelItem => item.Pets_Image)*@
+        </td>
+        <td>
+            @pet.Pets_Description
+        </td>
+        <td>
+            @pet.Pets_PurchasePrice
+        </td>
+        <td>
+            @pet.Pets_SalePrice
+        </td>
+        <td>
+
+            <a class="btn btn-primary glyphicon glyphicon-edit" href="@Url.Action("edit","tblPets", new {id=pet.Pets_ID})"></a>
+            <a class="btn btn-success glyphicon glyphicon-book" href="@Url.Action("details","tblPets", new {id=pet.Pets_ID})"></a>
+            <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("delete","tblPets", new {id=pet.Pets_ID})"></a>
+
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.Pets_ID }) |
+        @Html.ActionLink("Details", "Details", new { id=item.Pets_ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.Pets_ID })*@
+        </td>
+    </tr>
+}
+
+</table>

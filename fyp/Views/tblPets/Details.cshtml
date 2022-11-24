@@ -1,0 +1,75 @@
+﻿@model fyp.Models.tblPet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblPet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblPetSubcategory.P_SubcategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblPetSubcategory.P_SubcategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblShop.Shop_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblShop.Shop_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pets_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pets_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pets_Image)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.Pets_Image)" width="100" height="100" />
+            @*@Html.DisplayFor(model => model.Pets_Image)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pets_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pets_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pets_PurchasePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pets_PurchasePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pets_SalePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pets_SalePrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Pets_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

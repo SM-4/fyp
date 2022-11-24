@@ -1,0 +1,49 @@
+﻿@model IEnumerable<fyp.Models.tblVet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Veterinarian Name
+        </th>
+        <th>
+            Veterinarian Contact
+        </th>
+        <th>
+            Veterinarian Address
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var vet in Model) {
+    <tr>
+        <td>
+            @vet.Veterinarian_Name
+        </td>
+        <td>
+            @vet.Veterinarian_Contact
+        </td>
+        <td>
+            @vet.Veterinarian_Address
+        </td>
+        <td>
+            <a class="btn btn-primary glyphicon glyphicon-edit" href="@Url.Action("edit","tblVets", new {id=vet.Veterinarian_ID})"></a>
+            <a class="btn btn-success glyphicon glyphicon-book" href="@Url.Action("details","tblVets", new {id=vet.Veterinarian_ID})"></a>
+            <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("delete","tblVets", new {id=vet.Veterinarian_ID})"></a>
+
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Veterinarian_ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Veterinarian_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Veterinarian_ID })*@
+        </td>
+    </tr>
+}
+
+</table>

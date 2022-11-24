@@ -1,0 +1,62 @@
+﻿@model IEnumerable<fyp.Models.tblAdmin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Admin Name
+            @*@Html.DisplayNameFor(model => model.Admin_Name)*@
+        </th>
+        <th>
+            Admin Password
+        </th>
+        <th>
+            Admin Email
+        </th>
+        <th>
+            Admin Contact
+        </th>
+        <th>
+            Admin Address
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var admin in Model) {
+    <tr>
+        <td>
+            @admin.Admin_Name
+        </td>
+        <td>
+            @admin.Admin_Password
+        </td>
+        <td>
+            @admin.Admin_Email
+        </td>
+        <td>
+            @admin.Admin_Contact
+        </td>
+        <td>
+            @admin.Admin_Address
+        </td>
+        <td>
+            <a class="btn btn-primary glyphicon glyphicon-edit" href="@Url.Action("edit","tblAdmins", new {id=admin.Admin_ID })"></a>
+            <a class="btn btn-success glyphicon glyphicon-book" href="@Url.Action("details","tblAdmins", new {id=admin.Admin_ID })"></a>
+            <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("delete","tblAdmins", new {id=admin.Admin_ID })"></a>
+
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Admin_ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Admin_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Admin_ID })*@
+        </td>
+    </tr>
+}
+
+</table>

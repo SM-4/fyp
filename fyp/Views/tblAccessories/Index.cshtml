@@ -1,0 +1,74 @@
+﻿@model IEnumerable<fyp.Models.tblAccessory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.tblAccSubcategory.A_SubcategoryName)*@
+            SubCategory Name
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.tblShop.Shop_Name)*@
+            Shop Name
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Accessories_Name)*@
+            Accessories Name
+        </th>
+        <th>
+           Accessories Image
+        </th>
+        <th>
+            Accessories Description
+        </th>
+        <th>
+            Accessories PurchasePrice
+        </th>
+        <th>
+           Accessories SalePrice
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var acc in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => acc.tblAccSubcategory.A_SubcategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => acc.tblShop.Shop_Name)
+        </td>
+        <td>
+            @acc.Accessories_Name
+        </td>
+        <td>
+            <img src="@Url.Content(acc.Accessories_Image)" width="100" height="100" />
+            @*@Html.DisplayFor(modelItem => item.Accessories_Image)*@
+        </td>
+        <td>
+            @acc.Accessories_Description
+        </td>
+        <td>
+            @acc.Accessories_PurchasePrice
+        </td>
+        <td>
+            @acc.Accessories_SalePrice
+        </td>
+        <td>
+            <a class="btn btn-primary glyphicon glyphicon-edit" href="@Url.Action("edit","tblAccessories", new {id=acc.Accessories_ID})"></a>
+            <a class="btn btn-success glyphicon glyphicon-book" href="@Url.Action("details","tblAccessories", new {id=acc.Accessories_ID})"></a>
+            <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("delete","tblAccessories", new {id=acc.Accessories_ID})"></a>
+
+        </td>
+    </tr>
+}
+
+</table>

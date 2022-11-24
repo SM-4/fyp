@@ -1,0 +1,34 @@
+﻿@model fyp.Models.tblShop
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblShop</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_Address)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Shop_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

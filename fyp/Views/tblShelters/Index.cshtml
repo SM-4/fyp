@@ -1,0 +1,50 @@
+﻿@model IEnumerable<fyp.Models.tblShelter>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Shelter Name
+            @*@Html.DisplayNameFor(model => model.Shelter_Name)*@
+        </th>
+        <th>
+            Shelter Contact
+        </th>
+        <th>
+            Shelter Address
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Shelter_Name
+        </td>
+        <td>
+            @item.Shelter_Contact
+        </td>
+        <td>
+            @item.Shelter_Address
+        </td>
+        <td>
+            <a class="btn btn-primary glyphicon glyphicon-edit" href="@Url.Action("edit","tblShelters", new {id=item.Shelter_ID })"></a>
+            <a class="btn btn-success glyphicon glyphicon-book" href="@Url.Action("details","tblShelters", new {id=item.Shelter_ID })"></a>
+            <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("delete","tblShelters", new {id=item.Shelter_ID })"></a>
+
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Shelter_ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Shelter_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Shelter_ID })*@
+        </td>
+    </tr>
+}
+
+</table>

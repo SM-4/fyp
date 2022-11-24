@@ -1,0 +1,42 @@
+﻿@model fyp.Models.tblShelter
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblShelter</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelter_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shelter_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelter_Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shelter_Contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelter_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shelter_Address)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Shelter_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

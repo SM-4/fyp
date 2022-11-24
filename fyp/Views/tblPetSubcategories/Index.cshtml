@@ -1,0 +1,52 @@
+﻿@model IEnumerable<fyp.Models.tblPetSubcategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Pet Category Name
+            @*@Html.DisplayNameFor(model => model.tblPetCategory.P_CategoryName)*@
+        </th>
+        <th>
+            Pet SubCategory Name
+            @*@Html.DisplayNameFor(model => model.P_SubcategoryName)*@
+        </th>
+        <th>
+            Pet SubCategory Image
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblPetCategory.P_CategoryName)
+        </td>
+        <td>
+            @item.P_SubcategoryName
+        </td>
+        <td>
+            <img src="@Url.Content(item.P_SubcategoryImage)"width="100" height="100" />
+            @*@Html.DisplayFor(modelItem => item.P_SubcategoryImage)*@
+        </td>
+        <td>
+            <a class="btn btn-primary glyphicon glyphicon-edit" href="@Url.Action("edit","tblPetSubcategories", new {id=item.P_SubcategoryID})"></a>
+            <a class="btn btn-success glyphicon glyphicon-book" href="@Url.Action("details","tblPetSubcategories", new {id=item.P_SubcategoryID})"></a>
+            <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("delete","tblPetSubcategories", new {id=item.P_SubcategoryID})"></a>
+
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.P_SubcategoryID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.P_SubcategoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.P_SubcategoryID })*@
+        </td>
+    </tr>
+}
+
+</table>
