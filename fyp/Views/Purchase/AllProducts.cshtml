@@ -1,0 +1,107 @@
+﻿@model IEnumerable<fyp.Models.tblPet>
+
+@{
+    ViewBag.Title = "AllProducts";
+}
+
+<h2>AllProducts</h2>
+
+<p>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tblPetSubcategory.Subcategory_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblShop.Shop_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pets_Name)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Pets_Image)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Pets_Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pets_PurchasePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pets_SalePrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblPetSubcategory.Subcategory_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblShop.Shop_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pets_Name)
+            </td>
+            @*<td>
+                   <img src="@Url.Content(item.Pets_Image)" style="height:100px; width:50%" />
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Pets_Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pets_PurchasePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pets_SalePrice)
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" id="@item.Pets_ID" onclick="Addtocart(this)" name="@item.Pets_Name">Add to Cart</button>
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/Purchase/AddtoCart">
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Recipient:</label>
+                        <input type="hidden" class="form-control" id="ptid" name="petid">
+                        <input type="text" readonly class="form-control" id="ptname">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Message:</label>
+                        <input type="number" min="1" name="qty" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    function Addtocart(obj) {
+        var id = obj.id;
+        var name = obj.name;
+        $("#ptid").val(id);
+        $("#ptname").val(name);
+        $("#exampleModal").modal();
+    }
+</script>

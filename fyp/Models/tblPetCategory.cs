@@ -16,14 +16,14 @@ namespace fyp.Models
         }
 
         [Key]
-        public int P_CategoryID { get; set; }
+        public int Category_ID { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string P_CategoryName { get; set; }
+        public string Category_Name { get; set; }
 
         [StringLength(300)]
-        public string P_CategoryImage { get; set; }
+        public string Category_Image { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblPetSubcategory> tblPetSubcategories { get; set; }

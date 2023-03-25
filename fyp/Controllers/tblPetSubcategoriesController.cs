@@ -39,7 +39,7 @@ namespace fyp.Controllers
         // GET: tblPetSubcategories/Create
         public ActionResult Create()
         {
-            ViewBag.P_CategoryFID = new SelectList(db.tblPetCategories, "P_CategoryID", "P_CategoryName");
+            ViewBag.Category_FID = new SelectList(db.tblPetCategories, "Category_ID", "Category_Name");
             return View();
         }
 
@@ -52,7 +52,7 @@ namespace fyp.Controllers
         {
             string fullpath = Server.MapPath("~/content/pets/" + pic4.FileName);
             pic4.SaveAs(fullpath);
-            tblPetSubcategory.P_SubcategoryImage = "~/content/pets/" + pic4.FileName;
+            tblPetSubcategory.Subcategory_Image = "~/content/pets/" + pic4.FileName;
 
             if (ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace fyp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.P_CategoryFID = new SelectList(db.tblPetCategories, "P_CategoryID", "P_CategoryName", tblPetSubcategory.P_CategoryFID);
+            ViewBag.Category_FID = new SelectList(db.tblPetCategories, "Category_ID", "Category_Name", tblPetSubcategory.Category_FID);
             return View(tblPetSubcategory);
         }
 
@@ -77,7 +77,7 @@ namespace fyp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.P_CategoryFID = new SelectList(db.tblPetCategories, "P_CategoryID", "P_CategoryName", tblPetSubcategory.P_CategoryFID);
+            ViewBag.Category_FID = new SelectList(db.tblPetCategories, "Category_ID", "Category_Name", tblPetSubcategory.Category_FID);
             return View(tblPetSubcategory);
         }
 
@@ -92,7 +92,7 @@ namespace fyp.Controllers
             {
                 string fullpath = Server.MapPath("~/content/pets/" + pic4.FileName);
                 pic4.SaveAs(fullpath);
-                tblPetSubcategory.P_SubcategoryImage = "~/content/pets/" + pic4.FileName;
+                tblPetSubcategory.Subcategory_Image = "~/content/pets/" + pic4.FileName;
             }
             if (ModelState.IsValid)
             {
@@ -100,7 +100,7 @@ namespace fyp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.P_CategoryFID = new SelectList(db.tblPetCategories, "P_CategoryID", "P_CategoryName", tblPetSubcategory.P_CategoryFID);
+            ViewBag.Category_FID = new SelectList(db.tblPetCategories, "Category_ID", "Category_Name", tblPetSubcategory.Category_FID);
             return View(tblPetSubcategory);
         }
 

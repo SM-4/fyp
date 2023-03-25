@@ -1,0 +1,53 @@
+﻿@model IEnumerable<fyp.Models.tblPet>
+
+@{
+    ViewBag.Title = "Displaycart";
+}
+
+<h2>Displaycart</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pets_Name)
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pets_PurchasePrice)
+        </th>
+        <th>
+            Total
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pets_Name)
+        </td>
+        <td>
+            @item.Quantity
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pets_PurchasePrice)
+        </td>
+        <td>
+            @(item.Quantity*item.Pets_PurchasePrice)
+        </td>
+    </tr>
+}
+    <tr>
+        <td colspan="2">Want to Add More?</td>
+        <td colspan="2"><a class="btn btn-primary" href="/Purchase/AllProducts">Go to Pets</a></td>
+    </tr>
+    <tr>
+        <td colspan="2">Want to Save?</td>
+        <td colspan="2"><a class="btn btn-primary" href="/Purchase/SavePurchase">Save Purchase</a></td>
+    </tr>
+
+</table>
+

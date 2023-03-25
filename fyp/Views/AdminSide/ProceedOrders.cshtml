@@ -1,0 +1,51 @@
+﻿@model IEnumerable<fyp.Models.tblOrder>
+
+@{
+    ViewBag.Title = "NewOrders";
+}
+@Html.Raw(TempData["msg"])
+<h2>Proceed Orders </h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tblCustomer.Customer_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Payment_Mode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblCustomer.Customer_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment_Mode)
+        </td>
+        <td><a href="@Url.Action("invoice", "AdminSide", new {id=item.Order_ID})" class="btn btn-info">Invoice</a></td>
+        <td><a href="@Url.Action("AddtoDelivered", "AdminSide", new {id=item.Order_ID})" class="btn btn-success">Delivered</a></td>
+    </tr>
+}
+
+</table>

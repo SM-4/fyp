@@ -7,20 +7,21 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table class="table">
     <tr>
         <th>
-            Pet Category Name
-            @*@Html.DisplayNameFor(model => model.tblPetCategory.P_CategoryName)*@
+            Category Name
+            @*@Html.DisplayNameFor(model => model.tblPetCategory.Category_Name)*@
         </th>
         <th>
-            Pet SubCategory Name
-            @*@Html.DisplayNameFor(model => model.P_SubcategoryName)*@
+            SubCategory Name
+            @*@Html.DisplayNameFor(model => model.Subcategory_Name)*@
         </th>
         <th>
-            Pet SubCategory Image
+            SubCategory Image
         </th>
         <th></th>
     </tr>
@@ -28,24 +29,20 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.tblPetCategory.P_CategoryName)
+            @Html.DisplayFor(modelItem => item.tblPetCategory.Category_Name)
         </td>
         <td>
-            @item.P_SubcategoryName
+            @item.Subcategory_Name
         </td>
         <td>
-            <img src="@Url.Content(item.P_SubcategoryImage)"width="100" height="100" />
-            @*@Html.DisplayFor(modelItem => item.P_SubcategoryImage)*@
+            <img src="@Url.Content(item.Subcategory_Image)"width="100" height="100" />
+            @*@Html.DisplayFor(modelItem => item.Subcategory_Image)*@
         </td>
         <td>
-            <a class="btn btn-primary glyphicon glyphicon-edit" href="@Url.Action("edit","tblPetSubcategories", new {id=item.P_SubcategoryID})"></a>
-            <a class="btn btn-success glyphicon glyphicon-book" href="@Url.Action("details","tblPetSubcategories", new {id=item.P_SubcategoryID})"></a>
-            <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("delete","tblPetSubcategories", new {id=item.P_SubcategoryID})"></a>
-
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.P_SubcategoryID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.P_SubcategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.P_SubcategoryID })*@
-        </td>
+            <a class="btn btn-primary glyphicon glyphicon-edit" href="@Url.Action("edit","tblPetSubcategories", new {id=item.Subcategory_ID})"></a>
+            <a class="btn btn-success glyphicon glyphicon-book" href="@Url.Action("details","tblPetSubcategories", new {id=item.Subcategory_ID})"></a>
+            <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("delete","tblPetSubcategories", new {id=item.Subcategory_ID})"></a>
+       </td>
     </tr>
 }
 

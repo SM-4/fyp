@@ -16,18 +16,18 @@ namespace fyp.Models
         }
 
         [Key]
-        public int P_SubcategoryID { get; set; }
+        public int Subcategory_ID { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string P_SubcategoryName { get; set; }
+        public string Subcategory_Name { get; set; }
 
         //[Required]
         [StringLength(300)]
 
-        public string P_SubcategoryImage { get; set; }
+        public string Subcategory_Image { get; set; }
 
-        public int P_CategoryFID { get; set; }
+        public int Category_FID { get; set; }
 
         public virtual tblPetCategory tblPetCategory { get; set; }
 

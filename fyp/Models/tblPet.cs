@@ -19,6 +19,9 @@ namespace fyp.Models
         [Key]
         public int Pets_ID { get; set; }
 
+        [NotMapped]
+        public int Quantity { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Pets_Name { get; set; }
@@ -31,12 +34,12 @@ namespace fyp.Models
         public string Pets_Description { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Pets_PurchasePrice { get; set; }
+        //[StringLength(50)]
+        public decimal Pets_PurchasePrice { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Pets_SalePrice { get; set; }
+        //[StringLength(50)]
+        public decimal Pets_SalePrice { get; set; }
 
         public int P_SubcategoryFID { get; set; }
 

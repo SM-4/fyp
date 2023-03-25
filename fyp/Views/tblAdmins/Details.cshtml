@@ -11,7 +11,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Admin_Name)
+           Admin_Name
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Admin_Password)
+            Admin_Password
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Admin_Email)
+            Admin_Email
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Admin_Contact)
+            Admin_Contact
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Admin_Address)
+            Admin_Address
         </dt>
 
         <dd>
@@ -53,6 +53,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Admin_ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", "tblAdmins", new {id=Model.Admin_ID})" class="btn btn-primary">Edit</a>
+    <a href="@Url.Action("Index","tblAdmins")" class="btn btn-default">Back to list</a>
+
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Admin_ID }) |
+        @Html.ActionLink("Back to List", "Index")*@
+
 </p>

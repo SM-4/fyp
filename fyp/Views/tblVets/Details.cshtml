@@ -11,7 +11,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Veterinarian_Name)
+            Veterinarian_Name
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Veterinarian_Contact)
+            Veterinarian_Contact
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Veterinarian_Address)
+            Veterinarian_Address
         </dt>
 
         <dd>
@@ -37,6 +37,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Veterinarian_ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Veterinarian_ID }) |*@
+    <a href="@Url.Action("Edit","tblVets",new {id=Model.Veterinarian_ID})" class="btn btn-primary">Edit</a>
+    <a href="@Url.Action("Index","tblVets")" class="btn btn-default">Back to list</a>
 </p>

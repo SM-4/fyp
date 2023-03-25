@@ -12,7 +12,6 @@ namespace fyp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblShop()
         {
-            tblAccessories = new HashSet<tblAccessory>();
             tblPets = new HashSet<tblPet>();
         }
 
@@ -24,9 +23,6 @@ namespace fyp.Models
 
         [Required]
         public string Shop_Address { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblAccessory> tblAccessories { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblPet> tblPets { get; set; }

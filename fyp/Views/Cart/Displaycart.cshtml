@@ -1,0 +1,122 @@
+@using fyp.Models
+@{
+    Layout = "~/views/shared/Customer_Layout.cshtml";
+    List<tblPet> list = new List<tblPet>();
+    if (Session["cart"] != null)
+    {
+        list = (List<tblPet>)Session["cart"];
+    }
+
+    int petindexno = -1;
+
+    decimal total = 0;
+}
+
+<!-- Start All Title Box -->
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Cart</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Title Box -->
+<!-- Start Cart  -->
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color:coral; color:white">
+                                <th>Images</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in list)
+                            {
+                                petindexno++;
+                                total += item.Pets_SalePrice * item.Quantity;
+                                <tr>
+                                    <td class="thumbnail-img">
+                                        <a href="#">
+                                            <img class="img-fluid" src="@Url.Content(item.Pets_Image)" style="width:45%; height:100px" alt="" />
+                                        </a>
+                                    </td>
+                                    <td class="name-pr">
+                                        @*<a href="#">*@
+                                        @item.Pets_Name
+                                        @*</a>*@
+                                    </td>
+                                    <td class="price-pr">
+                                        <p>Rs. @item.Pets_SalePrice</p>
+                                    </td>
+                                    <td class="quantity-box">
+                                        <a href="@Url.Action("MinusFromCart","Cart", new {id=petindexno} )" class="btn btn-primary glyphicon glyphicon-minus">-</a>
+                                        <span style="margin:5px; ">
+                                            @item.Quantity
+                                        </span>
+                                        <a href="@Url.Action("PlusToCart","Cart", new {id=petindexno} )" class="btn btn-success glyphicon glyphicon-plus">+</a>
+                                    </td>
+                                    <td class="total-pr">
+                                        <p>Rs. @(item.Pets_SalePrice*item.Quantity)</p>
+                                    </td>
+                                    <td class="remove-pr">
+                                        <a href="@Url.Action("RemoveFromCart", "Cart", new {id=petindexno})">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-lg-3 col-sm-3">
+                <div class="update-box">
+                    <input class="btn btn-dark" onclick="window.location.href='@Url.Action("pets","Home")'" value="Update Products" type="submit">
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-lg-8 col-sm-12"></div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="order-box font-weight-bolder">
+                    <h3>Order summary</h3>
+                    <div class="d-flex">
+                        <h4>Sub Total</h4>
+                        <div class="ml-auto font-weight-bold"> Rs. @total </div>
+                    </div>
+                    <hr class="my-1">
+                    <div class="d-flex">
+                        <h4>Delivery Charges</h4>
+                        <div class="ml-auto font-weight-bold"> Rs. 200 </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex gr-total">
+                        <h5>Grand Total</h5>
+                        <div class="ml-auto h5">Rs: @(total+200) </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-12 d-flex shopping-box"><a href="@Url.Action("checkout","cart")" class="ml-auto btn hvr-hover btn-primary">Checkout</a> </div>
+        </div>
+
+    </div>
+</div>
+<!-- End Cart -->

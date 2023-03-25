@@ -7,16 +7,15 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+<a href="@Url.Action("Create")" class=" btn btn-info">Create New</a>
 </p>
 <table class="table">
     <tr>
         <th>
-            Pet Category Name
-            @*@Html.DisplayNameFor(model => model.P_CategoryName)*@
+            Category_Name
         </th>
         <th>
-            Pet Category Image
+            Category_Image
         </th>
         <th></th>
     </tr>
@@ -24,20 +23,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @item.P_CategoryName
+            @item.Category_Name
         </td>
         <td>
-            <img src="@Url.Content(item.P_CategoryImage)" width="100" height="100" />
-            @*@Html.DisplayFor(modelItem => item.P_CategoryImage)*@
+            <img src="@Url.Content(item.Category_Image)" width="100" height="100" />
         </td>
         <td>
-            <a class="btn btn-primary glyphicon glyphicon-edit" href="@Url.Action("edit","tblPetCategories", new {id=item.P_CategoryID})"></a>
-            <a class="btn btn-success glyphicon glyphicon-book" href="@Url.Action("details","tblPetCategories", new {id=item.P_CategoryID})"></a>
-            <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("delete","tblPetCategories", new {id=item.P_CategoryID})"></a>
-
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.P_CategoryID }) |
-        @Html.ActionLink("Details", "Details", new { id=item.P_CategoryID }) |
-        @Html.ActionLink("Delete", "Delete", new { id=item.P_CategoryID })*@
+            <a class="btn btn-primary glyphicon glyphicon-edit" href="@Url.Action("edit","tblPetCategories", new {id=item.Category_ID})"></a>
+            <a class="btn btn-success glyphicon glyphicon-book" href="@Url.Action("details","tblPetCategories", new {id=item.Category_ID})"></a>
+            <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("delete","tblPetCategories", new {id=item.Category_ID})"></a>
         </td>
     </tr>
 }

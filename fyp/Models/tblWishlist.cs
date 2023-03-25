@@ -10,16 +10,11 @@ namespace fyp.Models
     public partial class tblWishlist
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Wishlist_ID { get; set; }
 
         public int Customer_FID { get; set; }
 
-        public int? Pet_FID { get; set; }
-
-        public int? Accessories_FID { get; set; }
-
-        public virtual tblAccessory tblAccessory { get; set; }
+        public int Pet_FID { get; set; }
 
         public virtual tblCustomer tblCustomer { get; set; }
 

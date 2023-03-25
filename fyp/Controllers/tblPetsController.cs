@@ -39,7 +39,7 @@ namespace fyp.Controllers
         // GET: tblPets/Create
         public ActionResult Create()
         {
-            ViewBag.P_SubcategoryFID = new SelectList(db.tblPetSubcategories, "P_SubcategoryID", "P_SubcategoryName");
+            ViewBag.P_SubcategoryFID = new SelectList(db.tblPetSubcategories, "Subcategory_ID", "Subcategory_Name");
             ViewBag.Shop_FID = new SelectList(db.tblShops, "Shop_ID", "Shop_Name");
             return View();
         }
@@ -62,7 +62,7 @@ namespace fyp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.P_SubcategoryFID = new SelectList(db.tblPetSubcategories, "P_SubcategoryID", "P_SubcategoryName", tblPet.P_SubcategoryFID);
+            ViewBag.P_SubcategoryFID = new SelectList(db.tblPetSubcategories, "Subcategory_ID", "Subcategory_Name", tblPet.P_SubcategoryFID);
             ViewBag.Shop_FID = new SelectList(db.tblShops, "Shop_ID", "Shop_Name", tblPet.Shop_FID);
             return View(tblPet);
         }
@@ -79,7 +79,7 @@ namespace fyp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.P_SubcategoryFID = new SelectList(db.tblPetSubcategories, "P_SubcategoryID", "P_SubcategoryName", tblPet.P_SubcategoryFID);
+            ViewBag.P_SubcategoryFID = new SelectList(db.tblPetSubcategories, "Subcategory_ID", "Subcategory_Name", tblPet.P_SubcategoryFID);
             ViewBag.Shop_FID = new SelectList(db.tblShops, "Shop_ID", "Shop_Name", tblPet.Shop_FID);
             return View(tblPet);
         }
@@ -103,7 +103,7 @@ namespace fyp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.P_SubcategoryFID = new SelectList(db.tblPetSubcategories, "P_SubcategoryID", "P_SubcategoryName", tblPet.P_SubcategoryFID);
+            ViewBag.P_SubcategoryFID = new SelectList(db.tblPetSubcategories, "Subcategory_ID", "Subcategory_Name", tblPet.P_SubcategoryFID);
             ViewBag.Shop_FID = new SelectList(db.tblShops, "Shop_ID", "Shop_Name", tblPet.Shop_FID);
             return View(tblPet);
         }

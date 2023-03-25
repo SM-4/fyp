@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
 </p>
 <table class="table">
     <tr>
@@ -39,9 +39,6 @@
             <a class="btn btn-success glyphicon glyphicon-book" href="@Url.Action("details","tblVets", new {id=vet.Veterinarian_ID})"></a>
             <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("delete","tblVets", new {id=vet.Veterinarian_ID})"></a>
 
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.Veterinarian_ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Veterinarian_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Veterinarian_ID })*@
         </td>
     </tr>
 }

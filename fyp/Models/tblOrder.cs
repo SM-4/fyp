@@ -18,11 +18,10 @@ namespace fyp.Models
         [Key]
         public int Order_ID { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime Order_Date { get; set; }
 
-        public TimeSpan Order_Time { get; set; }
-
+        [StringLength(50)]
+        public string Order_Type { get; set; }
         [Required]
         [StringLength(50)]
         public string Order_Status { get; set; }

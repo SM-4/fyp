@@ -129,10 +129,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminSideController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\tblAccCategoriesController.cs" />
-    <Compile Include="Controllers\tblAccessoriesController.cs" />
-    <Compile Include="Controllers\tblAccSubcategoriesController.cs" />
+    <Compile Include="Controllers\PurchaseController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\tblAdminsController.cs" />
     <Compile Include="Controllers\tblPetCategoriesController.cs" />
     <Compile Include="Controllers\tblPetsController.cs" />
@@ -144,9 +145,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.cs" />
-    <Compile Include="Models\tblAccCategory.cs" />
-    <Compile Include="Models\tblAccessory.cs" />
-    <Compile Include="Models\tblAccSubcategory.cs" />
     <Compile Include="Models\tblAdmin.cs" />
     <Compile Include="Models\tblCustomer.cs" />
     <Compile Include="Models\tblFeedback.cs" />
@@ -160,6 +158,8 @@
     <Compile Include="Models\tblVet.cs" />
     <Compile Include="Models\tblWishlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utills\CurrentUser.cs" />
+    <Compile Include="Utills\EmailProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\admin\assets\css\bootstrap-theme.min.css" />
@@ -208,10 +208,15 @@
     <Content Include="Content\customer\img\blog-3.jpg" />
     <Content Include="Content\customer\img\carousel-1.jpg" />
     <Content Include="Content\customer\img\carousel-2.jpg" />
+    <Content Include="Content\customer\img\cat.jpeg" />
+    <Content Include="Content\customer\img\download.png" />
     <Content Include="Content\customer\img\feature.jpg" />
+    <Content Include="Content\customer\img\parot.jpg" />
+    <Content Include="Content\customer\img\petcare.png" />
     <Content Include="Content\customer\img\price-1.jpg" />
     <Content Include="Content\customer\img\price-2.jpg" />
     <Content Include="Content\customer\img\price-3.jpg" />
+    <Content Include="Content\customer\img\Quest.png" />
     <Content Include="Content\customer\img\team-1.jpg" />
     <Content Include="Content\customer\img\team-2.jpg" />
     <Content Include="Content\customer\img\team-3.jpg" />
@@ -221,6 +226,8 @@
     <Content Include="Content\customer\img\testimonial-3.jpg" />
     <Content Include="Content\customer\img\testimonial-4.jpg" />
     <Content Include="Content\customer\img\user.jpg" />
+    <Content Include="Content\customer\img\user.png" />
+    <Content Include="Content\customer\img\Vet.jpg" />
     <Content Include="Content\customer\js\main.js" />
     <Content Include="Content\customer\lib\easing\easing.js" />
     <Content Include="Content\customer\lib\easing\easing.min.js" />
@@ -277,12 +284,24 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Views\Home\AccCategory.cshtml" />
-    <Content Include="Views\Home\AccSubCategory.cshtml" />
-    <None Include="Views\Home\IndexCustomer.cshtml" />
-    <None Include="Views\Home\IndexAdmin.cshtml" />
+    <None Include="Views\AdminSide\invoice.cshtml" />
+    <Content Include="Views\AdminSide\NewOrders.cshtml" />
+    <Content Include="Views\AdminSide\ProceedOrders.cshtml" />
+    <None Include="Views\Cart\Displaycart.cshtml" />
+    <None Include="Views\Cart\checkout.cshtml" />
+    <Content Include="Views\Cart\CompleteOrder.cshtml" />
     <None Include="Views\Home\pets.cshtml" />
-    <None Include="Views\Home\petCategory.cshtml" />
+    <Content Include="Views\Home\CodeVerify.cshtml" />
+    <Content Include="Views\Home\Feedback.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\IndexAdmin.cshtml" />
+    <Content Include="Views\Home\NewPassword.cshtml" />
+    <Content Include="Views\Home\Shelter.cshtml" />
+    <None Include="Views\Home\SubCategory.cshtml" />
+    <None Include="Views\Home\CustomerLogin.cshtml" />
+    <None Include="Views\Home\ProductDetail.cshtml" />
+    <None Include="Views\Home\Vet.cshtml" />
+    <None Include="Views\Home\Training.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -295,24 +314,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\Customer_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Admin_Layout.cshtml" />
-    <Content Include="Views\tblAccCategories\Create.cshtml" />
-    <Content Include="Views\tblAccCategories\Delete.cshtml" />
-    <Content Include="Views\tblAccCategories\Details.cshtml" />
-    <Content Include="Views\tblAccCategories\Edit.cshtml" />
-    <Content Include="Views\tblAccCategories\Index.cshtml" />
-    <Content Include="Views\tblAccessories\Create.cshtml" />
-    <Content Include="Views\tblAccessories\Delete.cshtml" />
-    <Content Include="Views\tblAccessories\Details.cshtml" />
-    <Content Include="Views\tblAccessories\Edit.cshtml" />
-    <Content Include="Views\tblAccessories\Index.cshtml" />
-    <Content Include="Views\tblAccSubcategories\Create.cshtml" />
-    <Content Include="Views\tblAccSubcategories\Delete.cshtml" />
-    <Content Include="Views\tblAccSubcategories\Details.cshtml" />
-    <Content Include="Views\tblAccSubcategories\Edit.cshtml" />
-    <Content Include="Views\tblAccSubcategories\Index.cshtml" />
     <Content Include="Views\tblAdmins\Create.cshtml" />
     <Content Include="Views\tblAdmins\Delete.cshtml" />
     <Content Include="Views\tblAdmins\Details.cshtml" />
@@ -323,11 +325,6 @@
     <Content Include="Views\tblPets\Details.cshtml" />
     <Content Include="Views\tblPets\Edit.cshtml" />
     <Content Include="Views\tblPets\Index.cshtml" />
-    <Content Include="Views\tblPetCategories\Create.cshtml" />
-    <Content Include="Views\tblPetCategories\Delete.cshtml" />
-    <Content Include="Views\tblPetCategories\Details.cshtml" />
-    <Content Include="Views\tblPetCategories\Edit.cshtml" />
-    <Content Include="Views\tblPetCategories\Index.cshtml" />
     <Content Include="Views\tblPetSubcategories\Create.cshtml" />
     <Content Include="Views\tblPetSubcategories\Delete.cshtml" />
     <Content Include="Views\tblPetSubcategories\Details.cshtml" />
@@ -349,11 +346,21 @@
     <Content Include="Views\tblShelters\Edit.cshtml" />
     <Content Include="Views\tblShelters\Index.cshtml" />
     <Content Include="Views\Home\LoginAdmin.cshtml" />
-    <Content Include="Views\Home\PetSubCategory.cshtml" />
+    <Content Include="Views\Reports\SaleReport.cshtml" />
+    <Content Include="Views\Purchase\AllProducts.cshtml" />
+    <Content Include="Views\Purchase\Displaycart.cshtml" />
+    <Content Include="Views\Purchase\OrderComplete.cshtml" />
+    <Content Include="Views\Reports\PurchaseReport.cshtml" />
+    <Content Include="Views\Reports\StockReport.cshtml" />
+    <Content Include="Views\Reports\ProfitandLossReport.cshtml" />
+    <Content Include="Views\tblPetCategories\Create.cshtml" />
+    <Content Include="Views\tblPetCategories\Delete.cshtml" />
+    <Content Include="Views\tblPetCategories\Details.cshtml" />
+    <Content Include="Views\tblPetCategories\Edit.cshtml" />
+    <Content Include="Views\tblPetCategories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\accessory\" />
     <Folder Include="Content\admin\assets\plugins\" />
     <Folder Include="Content\pets\" />
   </ItemGroup>

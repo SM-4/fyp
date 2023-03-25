@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/Customer_Layout.cshtml";
+}
+@Html.Raw(ViewBag.msg)
+
+<!-- Start Cart  -->
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row new-account-login">
+            <div class="col-sm-6 col-lg-6 mb-3">
+                <div class="title-left">
+                    <h3>Code Verify</h3>
+                </div>
+                <h5><a href="#formLogin">Click here to Login</a></h5>
+                <form action="\home\CodeVerify" method="post" class="mt-3 collapse review-form-box show" id="formLogin">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="InputEmail" class="mb-0">Enter Code</label>
+                            <input required type="number" class="form-control" name="code" id="InputEmail" placeholder="Enter code">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn hvr-hover btn-primary">Submit</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>

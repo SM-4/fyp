@@ -11,23 +11,17 @@ namespace fyp.Models
         [Key]
         public int OrderDetails_ID { get; set; }
 
-        public int Order_Quantity { get; set; }
+        public int Order_PetQuantity { get; set; }
 
         public int Order_FID { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string SalePrice { get; set; }
+        [Column(TypeName ="numeric")]
+        public decimal SalePricePet { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string PurchasePrice { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal PurchasePricePet { get; set; }
 
         public int? Pets_FID { get; set; }
-
-        public int? Accessories_FID { get; set; }
-
-        public virtual tblAccessory tblAccessory { get; set; }
 
         public virtual tblOrder tblOrder { get; set; }
 

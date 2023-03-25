@@ -1,7 +1,109 @@
 ﻿@{
-    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/Customer_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<!-- About Start -->
+<div class="container py-5">
+    <div class="row py-5">
+        <div class="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
+            <h1 class="display-4 mb-4"><span class="text-primary">About</span><span class="text-secondary">Us</span></h1>
+            <p class="mb-4">
+                Quest 4 Pets gives customer the facility to buy Pets and their Accessories online. Customer can also consult with the veterinarian for their animal’s issues. Our platform also help clients to train their pets by viewing our linked training
+                videos. Clients can also consult with veterinarian as his clinic location and contact number is
+                mentioned there for consulting.
+            </p>
+            <ul class="list-inline">
+                <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Pets</h5></li>
+                <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Accessories</h5></li>
+                <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Veterinarian</h5></li>
+                <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Animal Shelter</h5></li>
+            </ul>
+        </div>
+        <div class="col-lg-5">
+            <div class="row px-3">
+                <div class="col-12 p-0">
+                    <img class="img-fluid w-100" src="~/content/customer/img/about-1.jpg" alt="">
+                </div>
+                <div class="col-6 p-0">
+                    <img class="img-fluid w-100" src="~/content/customer/img/about-2.jpg" alt="">
+                </div>
+                <div class="col-6 p-0">
+                    <img class="img-fluid w-100" src="~/content/customer/img/about-3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Services Start -->
+<div class="container-fluid bg-light pt-5">
+    <div class="container py-5">
+        <div class="d-flex flex-column text-center mb-5">
+            <h1 class="display-4 m-0"><span class="text-primary">Our</span> Services</h1>
+        </div>
+        <div class="row pb-3">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                    <h3 class="flaticon-cat display-3 font-weight-normal text-secondary mb-3"></h3>
+                    <h3 class="mb-3">Pet Training</h3>
+                    <a class="text-uppercase font-weight-bold" href="@Url.Action("Training","Home")">Visit</a>
+                </div>
+            </div>
 
-<p>Use this area to provide additional information.</p>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                    <h3 class="flaticon-house display-3 font-weight-normal text-secondary mb-3"></h3>
+                    <h3 class="mb-3">Pet Shelter</h3>
+                    <a class="text-uppercase font-weight-bold" href="@Url.Action("Shelter","Home")">Visit</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                    <h3 class="flaticon-vaccine display-3 font-weight-normal text-secondary mb-3"></h3>
+                    <h3 class="mb-3">Veterinarian</h3>
+                    <a class="text-uppercase font-weight-bold" href="@Url.Action("Vet","Home")">Visit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+<!-- Features Start -->
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-5">
+            <img class="img-fluid w-100" src="~/content/customer/img/feature.jpg" alt="">
+        </div>
+        <div class="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
+            <h1 class="display-4 mb-4"><span class="text-primary">Special Care</span> On Pets</h1>
+            <p class="mb-4"><b>Quest4Pets</b> provides multiple services to users </p>
+            <div class="row py-2">
+                <div class="col-6">
+                    <div class="d-flex align-items-center mb-4">
+                        <h1 class="flaticon-cat font-weight-normal text-secondary m-0 mr-3"></h1>
+                        <h5 class="text-truncate m-0">Buy Pets & Accessories</h5>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex align-items-center mb-4">
+                        <h1 class="flaticon-doctor font-weight-normal text-secondary m-0 mr-3"></h1>
+                        <h5 class="text-truncate m-0">Veterinarian Services</h5>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex align-items-center">
+                        <h1 class="flaticon-care font-weight-normal text-secondary m-0 mr-3"></h1>
+                        <h5 class="text-truncate m-0">Pet Shelter</h5>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex align-items-center">
+                        <h1 class="flaticon-dog font-weight-normal text-secondary m-0 mr-3"></h1>
+                        <h5 class="text-truncate m-0">Pet Training</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Features End -->

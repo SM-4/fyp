@@ -7,12 +7,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
 </p>
 <table class="table">
     <tr>
         <th>
-            Pet SubCategory
+            SubCategory
             @*@Html.DisplayNameFor(model => model.tblPetSubcategory.P_SubcategoryName)*@
         </th>
         <th>
@@ -20,20 +20,20 @@
             @*@Html.DisplayNameFor(model => model.tblShop.Shop_Name)*@
         </th>
         <th>
-            Pets Name
+            Product Name
             @*@Html.DisplayNameFor(model => model.Pets_Name)*@
         </th>
         <th>
-            Pets Image
+            Product Image
         </th>
         <th>
-            Pets Description
+            Product Description
         </th>
         <th>
-            Pets Purchase Price
+             Purchase Price
         </th>
         <th>
-            Pets Sale Price
+             Sale Price
         </th>
         <th></th>
     </tr>
@@ -41,7 +41,7 @@
 @foreach (var pet in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => pet.tblPetSubcategory.P_SubcategoryName)
+            @Html.DisplayFor(modelItem => pet.tblPetSubcategory.Subcategory_Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => pet.tblShop.Shop_Name)

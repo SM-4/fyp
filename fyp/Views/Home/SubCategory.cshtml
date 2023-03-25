@@ -1,0 +1,51 @@
+@using fyp.Models
+@{
+    Layout = "~/views/shared/Customer_Layout.cshtml";
+    Model1 db = new Model1();
+ }
+
+    <!-- Pricing Plan Start -->
+    <div class="container-fluid bg-light pt-5 pb-4">
+        <div class="container py-5">
+            <div class="d-flex flex-column text-center mb-5">
+                <h1 class="display-4 m-0">Choose the <span class="text-primary"> Category</span></h1>
+            </div>
+          
+            <div class="row pb-3">
+                @foreach (var item in db.tblPetSubcategories)
+                {
+                    if ( item.Category_FID == (int)ViewData["catid"])
+                    {
+                        <div class="col-lg-4 mb-4">
+                            <div class="card border-0">
+                                <div class="card-header position-relative border-0 p-0 mb-4">
+                                    <img class="card-img-top" src="@Url.Content(item.Subcategory_Image)" style="width:100%; height:200px" alt="">
+                                    <div class="position-absolute d-flex flex-column align-items-center justify-content-center w-100 h-100" style="top: 0; left: 0; z-index: 1; background: rgba(0, 0, 0, .5);">
+                                        <h3 class="text-primary mb-3">@item.Subcategory_Name</h3>
+                                    </div>
+                                </div>
+
+                                @*<div class="card-body text-center p-0">
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item p-2"><i class="fa fa-check text-secondary mr-2"></i>Feeding</li>
+                                <li class="list-group-item p-2"><i class="fa fa-check text-secondary mr-2"></i>Boarding</li>
+                                <li class="list-group-item p-2"><i class="fa fa-times text-danger mr-2"></i>Spa & Grooming</li>
+                                <li class="list-group-item p-2"><i class="fa fa-times text-danger mr-2"></i>Veterinary Medicine</li>
+                            </ul>
+                        </div>*@
+                                <div class="card-footer border-0 p-0">
+                                    <a href="@Url.Action("Pets", "Home", new {id=item.Subcategory_ID})" class="btn btn-primary btn-block p-3" style="border-radius: 0;">@item.Subcategory_Name</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    }
+                }
+            </div>
+           
+            </div>
+    </div>
+    <!-- Pricing Plan End -->
+
+

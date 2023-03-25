@@ -1,0 +1,71 @@
+﻿@model IEnumerable<fyp.Models.tblOrder>
+
+@{
+    ViewBag.Title = "ProfitandLossReport";
+}
+
+<h2>ProfitandLossReport</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tblAdmin.Admin_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblCustomer.Customer_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Status)
+        </th>
+        <th>
+            Total Sale
+        </th>
+        <th>
+            Total Purchase
+        </th>
+        <th>
+            Total Profit
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblAdmin.Admin_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblCustomer.Customer_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Status)
+        </td>
+        <td>
+            @item.tblOrderDetails.Sum(x=>x.SalePricePet)
+        </td>
+        <td>
+            @item.tblOrderDetails.Sum(x=>x.PurchasePricePet)
+        </td>
+        <td>
+            @(item.tblOrderDetails.Sum(x=>x.SalePricePet) - item.tblOrderDetails.Sum(x => x.PurchasePricePet))
+        </td>
+        <td></td>
+    </tr>
+}
+
+</table>

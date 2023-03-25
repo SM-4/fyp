@@ -46,11 +46,11 @@ namespace fyp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( tblPetCategory tblPetCategory, HttpPostedFileBase pic5)
+        public ActionResult Create(tblPetCategory tblPetCategory, HttpPostedFileBase pic2)
         {
-            string fullpath = Server.MapPath("~/content/pets/" + pic5.FileName);
-            pic5.SaveAs(fullpath);
-            tblPetCategory.P_CategoryImage = "~/content/pets/" + pic5.FileName;
+            string fullpath = Server.MapPath("~/content/pets/" + pic2.FileName);
+            pic2.SaveAs(fullpath);
+            tblPetCategory.Category_Image = "~/content/pets/" + pic2.FileName;
 
             if (ModelState.IsValid)
             {
@@ -82,13 +82,13 @@ namespace fyp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit( tblPetCategory tblPetCategory, HttpPostedFileBase pic5)
+        public ActionResult Edit(tblPetCategory tblPetCategory, HttpPostedFileBase pic2)
         {
-            if (pic5 != null)
+            if (pic2 != null)
             {
-                string fullpath = Server.MapPath("~/content/pets/" + pic5.FileName);
-                pic5.SaveAs(fullpath);
-                tblPetCategory.P_CategoryImage = "~/content/pets/" + pic5.FileName;
+                string fullpath = Server.MapPath("~/content/pets/" + pic2.FileName);
+                pic2.SaveAs(fullpath);
+                tblPetCategory.Category_Image = "~/content/pets/" + pic2.FileName;
             }
             if (ModelState.IsValid)
             {

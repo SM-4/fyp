@@ -14,20 +14,15 @@ namespace fyp.Models
 
         [StringLength(50)]
         public string Feedback_Description { get; set; }
+        public DateTime Feedback_Date { get; set; }
+
 
         [StringLength(300)]
         public string Feedback_Image { get; set; }
 
-        [Column(TypeName = "numeric")]
-        public decimal? Feedback_Rating { get; set; }
-
         public int Customer_FID { get; set; }
 
         public int? Pets_FID { get; set; }
-
-        public int? Accessories_FID { get; set; }
-
-        public virtual tblAccessory tblAccessory { get; set; }
 
         public virtual tblCustomer tblCustomer { get; set; }
 

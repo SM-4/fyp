@@ -1,0 +1,146 @@
+@using fyp.Models
+@using fyp.Utills
+@{
+    Layout = "~/Views/Shared/Customer_Layout.cshtml";
+    List<tblPet> list = new List<tblPet>();
+    if (Session["cart"] != null)
+    {
+        list = (List<tblPet>)Session["cart"];
+    }
+
+   
+    int petindexno = -1;
+    decimal total = 0;
+
+    tblCustomer cus=CurrentUser.CurrentCustomer;
+}
+
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Checkout</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active">Checkout</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+
+    <!-- Start Cart  -->
+    <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-6 mb-3">
+                    <div class="checkout-address">
+                        <div class="title-left">
+                            <h3>Billing address</h3>
+                        </div>
+                        <form action="/cart/OrderBooked" method="post" class="needs-validation" novalidate>
+                            <div class="row">
+                                <div class="col-md-12 mb-6">
+                                    <label for="firstName">First name *</label>
+                                    <input type="text" readonly class="form-control" id="firstName" placeholder="" value="@cus.Customer_Name" required>
+                                    <div class="invalid-feedback"> Valid first name is required. </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Phone no. *</label>
+                                <input type="text" readonly value="@cus.Customer_Contact" class="form-control" id="phone" placeholder="">
+                                <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Email Address *</label>
+                                <input type="email" readonly value="@cus.Customer_Email" class="form-control" id="email" placeholder="">
+                                <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address">Address *</label>
+                                <input type="text" readonly value="@cus.Customer_Address" class="form-control" id="address" placeholder="" required>
+                                <div class="invalid-feedback"> Please enter your shipping address. </div>
+                            </div>
+
+                            <hr class="mb-4">
+                            <div class="title"> <span>Payment</span> </div>
+                            <div class="d-block my-3">
+                                <div class="custom-control custom-radio">
+                                    <input id="credit" value="COD" name="Payment_Mode" type="radio" class="custom-control-input" checked required>
+                                    <label class="custom-control-label" for="credit">Cash On Delivery</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="paypal" value="paypal" name="Payment_Mode" type="radio" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="paypal">Paypal</label>
+                                </div>
+
+                            </div>
+
+                            <hr class="mb-1">
+                            <div class="col-12 d-flex shopping-box"> <input type="submit" class="ml-auto btn hvr-hover btn btn-primary" value="Place Order"></div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-6 mb-3">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="shipping-method-box">
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12">
+                            <div class="odr-box">
+                                <div class="title-left">
+                                    <h3>Shopping cart</h3>
+                                </div>
+                                <div class="rounded p-2 bg-light">
+                                    @foreach (var item in list)
+                                    {
+                                        petindexno++;
+                                        total += item.Pets_SalePrice * item.Quantity;
+                                        <div class="media mb-2 border-bottom">
+                                            <div class="media-body">
+                                                <a href="detail.html">@item.Pets_Name</a>
+                                                <div class="small text-muted">Price: @item.Pets_SalePrice <span class="mx-2">|</span> Qty: @item.Quantity <span class="mx-2">|</span> Subtotal: @(item.Pets_SalePrice*item.Quantity)</div>
+                                            </div>
+                                        </div>
+                                    }
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12">
+                            <div class="order-box">
+                                <div class="title-left">
+                                    <h3>Your order</h3>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="font-weight-bold">Product</div>
+                                    <div class="ml-auto font-weight-bold">Total</div>
+                                </div>
+                                <hr class="my-1">
+                                <div class="d-flex">
+                                    <h4>Sub Total</h4>
+                                    <div class="ml-auto font-weight-bold"> Rs. @total </div>
+                                </div>
+                              
+                                <div class="d-flex">
+                                    <h4>Delivery Charges</h4>
+                                    <div class="ml-auto font-weight-bold"> Rs. 200 </div>
+                                </div>
+                                <hr>
+                                <div class="d-flex gr-total">
+                                    <h5>Grand Total</h5>
+                                    <div class="ml-auto h5"> Rs: @(total+200)</div>
+                                </div>
+                                <hr> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End Cart -->

@@ -14,7 +14,7 @@ Website: http://www.webthemez.com/
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="" name="description" />
     <meta content="webthemez" name="author" />
-    <title>BRILLIANT Free Bootstrap Admin Template - WebThemez</title>
+    <title>Quest4Pets_AdminSide</title>
     <!-- Bootstrap Styles-->
     <link href="~/content/admin/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
@@ -38,7 +38,7 @@ Website: http://www.webthemez.com/
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i> BRILLIANT</strong></a>
+                <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-user"></i> Quest4Pets</strong></a>
 
                 <div id="sideNav" href="">
                     <i class="fa fa-bars icon"></i>
@@ -263,66 +263,62 @@ Website: http://www.webthemez.com/
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu" href="@Url.Action("IndexAdmin","Home")"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> UI Elements</a>
+                        <a href="@Url.Action("index","tblAdmins")"><i class="fa fa-desktop"></i> Manage Admin Account</a>
                     </li>
-
                     <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Charts<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-sitemap"></i>Manage Pets<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="chart.html">Charts JS</a>
+                                <a href="@Url.Action("index","tblPetCategories")">Manage Category</a>
                             </li>
                             <li>
-                                <a href="morris-chart.html">Morris Chart</a>
+                                <a href="@Url.Action("index","tblPetSubcategories")">Manage SubCategory</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("index","tblPets")">Manage Pets/Accessories</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("NewOrders","AdminSide")"><i class="fa fa-desktop"></i> New Orders</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ProceedOrders","AdminSide")"><i class="fa fa-desktop"></i> Proceed Orders</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> Reports<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("StockReport","Reports")">Stock Report</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("AllProducts","Purchase")"> Manage Purchase Report</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("SaleReport","Reports")">Sale Report</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("PurchaseReport","Reports")">Purchase Report</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("ProfitandLossReport","Reports")">Profit & Loss Report</a>
                             </li>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
-                    </li>
-
-                    <li>
-                        <a href="table.html"><i class="fa fa-table"></i> Responsive Tables</a>
+                        <a href="@Url.Action("index","tblVets")"><i class="fa fa-qrcode"></i> Manage Veterinarian</a>
                     </li>
                     <li>
-                        <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
+                        <a href="@Url.Action("index","tblShelters")"><i class="fa fa-qrcode"></i> Manage Shelter</a>
                     </li>
                     <li>
-                        <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
+                        <a href="@Url.Action("index","tblShops")"><i class="fa fa-qrcode"></i> Manage Shops</a>
                     </li>
+
                 </ul>
 
             </div>
@@ -359,6 +355,8 @@ Website: http://www.webthemez.com/
         <!-- Chart Js -->
         <script type="text/javascript" src="~/content/admin/assets/js/Chart.min.js"></script>
         <script type="text/javascript" src="~/content/admin/assets/js/chartjs.js"></script>
+        
+    </div>
 
 </body>
 
